@@ -1,0 +1,28 @@
+# Листинг 6.11, файл togglegroupapp.kv
+<Mylayout>:
+    size: root.width, root.height
+    cols:1
+    Label:
+        text:"Выберите язык для перевода"
+        font_size:16
+    Label:
+        id:l1
+        text: 'Здесь будет ваш выбор'
+        font_size:16
+    BoxLayout:
+        orientation:'horizontal'
+        ToggleButton:
+            text : "Английский"
+            font_size : 16
+            group:'branch'
+            on_press:root.callback(*args)
+        ToggleButton:
+            text:'Немецкий'
+            font_size:16
+            group:'branch'
+            on_press:root.callback(*args)
+        ToggleButton:
+            text:'Китайский'
+            font_size:16
+            group:'branch'
+            on_press:root.callback(*args)
