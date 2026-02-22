@@ -1,0 +1,171 @@
+# Листинг 13.4, Pizza_Delivery.kv
+<MyCard@MDCard>
+    ripple_behavior: True
+    size_hint_x: .5
+    size_hint_y: .3
+
+<MyBox@MDBoxLayout>
+    orientation: 'vertical'
+    padding: '5dp'
+
+<Label_1@MDLabel>
+    size_hint_y: .1
+    font_style: 'Body2'
+
+<Label_2@MDLabel>
+    size_hint_y: .1
+    font_size: '13dp'
+
+MDScreen:
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        # верхняя панель
+        MDTopAppBar:
+            elevation: 2
+            title: 'Магазин "Пицца на заказ"'
+            left_action_items:[['menu', lambda x: app.menu_up()]]
+            right_action_items:[['logout', lambda x: app.stop()]]
+
+        ScrollView:
+            MDGridLayout:
+                cols: 2
+                size_hint_y: 2.4
+
+                # карточки
+                # -------------------------------------------------
+                MyCard:
+                    id: card1
+                    on_touch_down:
+                        app.on_touch_down('«Маргарита»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Margaritta.jpg'
+                        Label_1:
+                            text: 'Пицца «Маргарита»'
+                        Label_2:
+                            text: '30 см. 550 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card2
+                    on_touch_down:
+                        app.on_touch_down('«Маринара»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Marinara.jpg'
+                        Label_1:
+                            text: 'Пицца «Маринара»'
+                        Label_2:
+                            text: '30 см. 550 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card3
+                    on_touch_down:
+                        app.on_touch_down('«Четыре сезона»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Four_seasons.jpg'
+                        Label_1:
+                            text: 'Пицца «Четыре сезона»'
+                        Label_2:
+                            text: '30 см. 410 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card4
+                    on_touch_down:
+                        app.on_touch_down('«Карбонара»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Carbonara.jpg'
+                        Label_1:
+                            text: 'Пицца «Карбонара»'
+                        Label_2:
+                            text: '30 см. 750 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card5
+                    on_touch_down:
+                        app.on_touch_down('«Морепродукты')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Seafood.jpg'
+                        Label_1:
+                            text: 'Пицца с морепродуктами'
+                        Label_2:
+                            text: '30 см. 330 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card6
+                    on_touch_down:
+                        app.on_touch_down('«Четыре сыра»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Four_seasons.jpg'
+                        Label_1:
+                            text: 'Пицца «Четыре сыра»'
+                        Label_2:
+                            text: '30 см. 265 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card7
+                    on_touch_down:
+                        app.on_touch_down('«Крудо»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Crudo.jpg'
+                        Label_1:
+                            text: 'Пицца «Крудо»'
+                        Label_2:
+                            text: '30 см. 760 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card8
+                    on_touch_down:
+                        app.on_touch_down('«Неаполетано»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Napoletana.jpg'
+                        Label_1:
+                            text: 'Пицца «Неаполетано»'
+                        Label_2:
+                            text: '30 см. 400 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card9
+                    on_touch_down:
+                        app.on_touch_down('«Американо»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Americana.jpg'
+                        Label_1:
+                            text: 'Пицца «Американо»'
+                        Label_2:
+                            text: '30 см. 900 руб.'
+                # -------------------------------------------------
+                MyCard:
+                    id: card10
+                    on_touch_down:
+                        app.on_touch_down('«Монтанара»')\
+                        if self.collide_point(*args[1].pos) else False
+                    MyBox
+                        Image:
+                            source: 'images/Montanara.jpg'
+                        Label_1:
+                            text: 'Пицца «Монтанара»'
+                        Label_2:
+                            text: '30 см. 400 руб.'
+
+        # нижняя панель
+        MDTopAppBar:
+            elevation: 2
+            title: 'Корзина с заказами'
+            left_action_items:[['basket-plus', lambda x: app.on_my_icon()]]

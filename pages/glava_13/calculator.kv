@@ -1,0 +1,82 @@
+# Listing_13_3, файл calculator.kv
+<CustButton@Button>:
+   font_size: 32
+
+# Контейнер для размещения видимых элементов интерфейса
+# на базе класса, описанного в коде на Python
+<CalcGridLayout>:
+   id: calculator
+   display: entry
+   rows: 5
+   padding: 5
+   spacing: 5
+
+   # Строка для отображения ввода и результатов
+   BoxLayout:
+      TextInput:
+         id: entry
+         font_size: 32
+         multiline: False
+
+   # При нажатии кнопок будет обновление строки ввода
+   BoxLayout:
+      spacing: 5
+      CustButton:
+         text: "7"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "8"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "9"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "+"
+         on_press: entry.text += self.text
+
+   BoxLayout:
+      spacing: 5
+      CustButton:
+         text: "4"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "5"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "6"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "-"
+         on_press: entry.text += self.text
+
+   BoxLayout:
+      spacing: 5
+      CustButton:
+         text: "1"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "2"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "3"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "*"
+         on_press: entry.text += self.text
+
+   BoxLayout:
+      spacing: 5
+      CustButton:
+         text: "C"
+         # При нажатии кнопки "C" будет очищена строка ввода
+         on_press: entry.text = ""
+      CustButton:
+         text: "0"
+         on_press: entry.text += self.text
+      CustButton:
+         text: "="
+         # При нажатии кнопки "=" будет обращение к функции вычисления
+         on_press: calculator.calculate(entry.text)
+      CustButton:
+         text: "/"
+         on_press: entry.text += self.text
